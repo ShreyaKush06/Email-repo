@@ -2,8 +2,7 @@ name: Daily Commit
 
 on:
   schedule:
-    # Runs every day at 04:10 UTC (you can adjust hours/minutes as needed)
-    - cron: '10 4 * * *'
+    - cron: '10 4 * * *'   # once/day at 04:10 UTC
 
 jobs:
   commit:
@@ -12,7 +11,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Add a commit with 24f3003529@ds.study.iitm.ac.in
+      - name: Add a commit (24f3003529@ds.study.iitm.ac.in)  # <-- Email is in the step name!
         run: |
           date > update.txt
           git config user.name "GitHub Actions Bot"
@@ -20,4 +19,3 @@ jobs:
           git add update.txt
           git commit -m "Automated daily commit - $(date)"
           git push
-mit_author: 'DevSync Automation Bot <automation@devsync.com>'
