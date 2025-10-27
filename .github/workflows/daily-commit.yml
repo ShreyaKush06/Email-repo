@@ -9,10 +9,12 @@ on:
 jobs:
   daily-commit:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # ✅ Step name includes your email address (required!)
       - name: Add daily commit by 24f3003529@ds.study.iitm.ac.in
         run: |
           echo "Daily update: $(date)" >> daily_log.txt
@@ -21,3 +23,4 @@ jobs:
           git add daily_log.txt
           git commit -m "Automated daily commit on $(date)"
           git push
+
